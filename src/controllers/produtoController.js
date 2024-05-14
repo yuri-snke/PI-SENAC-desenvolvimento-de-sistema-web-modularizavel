@@ -1,4 +1,4 @@
-export const obterTodos = async ( req, res) => {
+export const obterTodos = async (req, res) => {
   try {
     const results = await query("SELECT * FROM tbl_produto");
     if (results?.[0]?.length > 0) {
