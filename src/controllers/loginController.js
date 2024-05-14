@@ -1,14 +1,17 @@
-const Userlogin = async (req, resp, db) => {
+import { ValidarLogin } from "../data/repositories/loginRepository.js";
+
+const Userlogin = async (req, resp) => {
     try{
         let userLogin = req.body;
 
         if(!userLogin.login)
-            return 'Necessário colocar o login'
+            return 'Necessário informar o login!'
 
-        let comando = `SELECT * FROM tbl_usuario WHERE login = ? and senha = ?`;
-        const [linhas] = await db.query(comando, [userLogin.login, userLogin.senha]);
+        if(!userLogin.login)
+            return 'Necessário informar a senha!'
+
+        const linhas = await ValidarLogin(userLogin);
         
-        console.log(linhas)
         if(linhas.length > 0)
             resp.status(200).json({ message: "Autorizado" });  
         else
