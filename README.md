@@ -4,6 +4,7 @@
 
 - MySQL.
 - VSCode.
+- Node.
 
 ## Configurações
   
@@ -17,5 +18,5 @@ DB=
 
 ## Execução
 
-- Executar o comando 'npm install' via terminal na raiz do projeto para instalação dos pacotes.
-- Executar o comando 'npm start' via terminal na raiz do projeto para executar a API.
+- Executar o comando 'npm install' para instalação dos pacotes.
+- Executar o comando 'npm start' para executar a API.
