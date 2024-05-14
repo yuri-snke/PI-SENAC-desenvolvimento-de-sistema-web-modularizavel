@@ -1,11 +1,13 @@
 import "dotenv/config";
 import express from "express";
 import mysql from "mysql2/promise";
+import cors from 'cors'
 import { rotasProduto } from "./routes/rotasProduto.js";
 import { rotasLogin } from "./routes/rotasLogin.js";
 
 
 const app = express();
+app.use(cors())
 app.use(express.json());
 
 const PORT = process.env.PORT;
