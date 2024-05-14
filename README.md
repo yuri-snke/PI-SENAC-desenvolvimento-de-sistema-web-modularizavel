@@ -13,7 +13,7 @@ HOST=
 USER=
 PWD=
 DB=
-- Criar a base de dados e as tabelas usando o script encontrado na raiz do projeto [**DUMP**]([url](https://github.com/yuri-snke/PI-SENAC-desenvolvimento-de-sistema-web-modularizavel/blob/master/dump.sql)).
+- Criar a base de dados e as tabelas usando o script encontrado na raiz do projeto [**dump.sql**](https://github.com/yuri-snke/PI-SENAC-desenvolvimento-de-sistema-web-modularizavel/blob/master/dump.sql).
 
 ## Execução
 
