@@ -7,6 +7,8 @@
 
     <title>Document</title>
     <script src="./src/styles/script.js"></script>
+    <script src="./JS/index.js"></script>
+    <script src="./JS/integracaoAPI.js" type="text/javascript"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/inicio.css">
 
@@ -27,7 +29,7 @@
                 <li><a href="transacoes.html">Transações</a></li>
                 <li><a href="cursos.html">Cursos</a></li>
                 <li><a href="descontos.html">Descontos</a></li>
-                <li><a href="login.html">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+                <li><a onclick="Logoff()">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
 
 
             </ul>
@@ -40,25 +42,25 @@
     <section class="boxes">
         <div class="box">
             <h3>Saldo</h3>
-            <p>R$ 10,000.00</p> <!---Dados a serem alterados-->
+            <p id="saldo" >R$ 10,000.00</p> <!---Dados a serem alterados-->
         </div>
 
         <div class="box">
             <h3>Despesas Mensais</h3>
-            <p>R$ 3,000.00</p> <!---Dados a serem alterados-->
+            <p id="despesa">R$ 3,000.00</p> <!---Dados a serem alterados-->
         </div>
 
         <div class="box">
             <h3>Receitas Mensais</h3>
-            <p>R$ 13,000.00</p> <!---Dados a serem alterados-->
+            <p id="receita">R$ 13,000.00</p> <!---Dados a serem alterados-->
         </div>
     </section>
 
     <section class="lists">
         <h1>Agenda</h1>
 
-        <ul>
-            <li>
+        <ul id="listaAgenda">
+            <!-- <li>
                 <h4>Reunião com Clientes</h4>
                 <p>10:00 - Sala de Confêrencias</p>
             </li>
@@ -71,7 +73,7 @@
             <li>
                 <h4>Entrega de Relatórios Mensais</h4>
                 <p>16:00 - Diretoria</p>
-            </li>
+            </li> -->
         </ul>
 
     </section>
