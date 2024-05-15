@@ -4,7 +4,6 @@ export const obterTransacoes = async (req, res) => {
   try {
     const results = await BuscarTransacoesPorID(1);
 
-    console.log(results);
     if (results.length > 0) {
       res.send(results);
     } else {

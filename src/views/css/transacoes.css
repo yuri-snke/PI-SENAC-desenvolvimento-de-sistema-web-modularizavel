@@ -1,0 +1,29 @@
+button{
+    background-color: #007BFF;
+    height: 45px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 10px;
+    cursor: pointer;
+    max-width: 200px;
+    transition: .4s;
+}
+
+button:hover{
+   opacity: .7;
+}
+
+button a{
+    text-decoration: none;
+    color: #fff;
+}
+
+
+.transacao{
+    color: #007BFF;
+    font-style: italic;
+}
