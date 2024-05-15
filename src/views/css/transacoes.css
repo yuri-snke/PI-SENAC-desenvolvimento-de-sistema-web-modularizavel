@@ -24,6 +24,6 @@ button a{
 
 
 .transacao{
-    color: #007BFF;
+     color: #007BFF !important;
     font-style: italic;
 }
