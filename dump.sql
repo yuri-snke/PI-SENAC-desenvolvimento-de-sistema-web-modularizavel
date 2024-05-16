@@ -12,6 +12,7 @@ create table tbl_usuario(
 create table tbl_transacao(
     id INT PRIMARY KEY AUTO_INCREMENT,
     usuario_id INT NOT NULL,
+	nome_transacao VARCHAR(100) NOT NULL,
     valor DECIMAL(10, 2) NOT NULL,
     data_transacao DATE NOT NULL,
     tipo_transacao ENUM('despesa', 'receita') NOT NULL,
@@ -26,18 +27,21 @@ CREATE TABLE tbl_curso (
 
 CREATE TABLE tbl_descontos (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    id_curso INT NOT NULL,
+    curso_id INT NOT NULL,
     desconto_percentual DECIMAL(5, 2) NOT NULL,
     data_inicio DATE NOT NULL,
     data_fim DATE NOT NULL,
-    FOREIGN KEY (id_curso) REFERENCES tbl_curso(id)
+    FOREIGN KEY (curso_id) REFERENCES tbl_curso(id)
 );
 
 CREATE TABLE tbl_agenda (
     id INT AUTO_INCREMENT PRIMARY KEY,
+	usuario_id INT NOT NULL,
     titulo VARCHAR(100) NOT NULL,
     data_inicio DATETIME NOT NULL,
-    data_fim DATETIME NOT NULL
+    data_fim DATETIME NOT NULL,
+    FOREIGN KEY (usuario_id) REFERENCES tbl_usuario(id)
 );
+
 
 /*select * from tbl_usuario*/
