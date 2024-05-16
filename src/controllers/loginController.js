@@ -1,5 +1,5 @@
 import { ValidarLogin } from "../data/repositories/loginRepository.js";
-import { gerarToken } from "../service/jwtService.js";
+import { gerarToken } from "../services/jwtService.js";
 
 const Userlogin = async (req, resp) => {
   try {

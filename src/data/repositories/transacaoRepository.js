@@ -14,7 +14,7 @@ async function BuscarDespesaDoMes(userID) {
                   AND YEAR(data_transacao) = YEAR(CURDATE())
                   AND usuario_id = ?
                   AND tipo_transacao = 'despesa';`;
-  const [linha] = await con.query(comando, [userID]);    
+  const [linha] = await con.query(comando, [userID]);
 
   return linha[0];
 }
@@ -29,8 +29,27 @@ async function BuscarReceitaDoMes(userID) {
   const [linha] = await con.query(comando, [userID]);
 
   return linha[0];
-
 }
 
+async function CriarTransacao(transacao) {
+  let comando = `INSERT INTO tbl_transacao
+                (usuario_id, nome_transacao, valor, data_transacao, tipo_transacao)
+                VALUES (?, ?, ?, ?, ?)`;
 
-export { BuscarTransacoesPorIDUsuario, BuscarDespesaDoMes, BuscarReceitaDoMes };
+  let result = await con.query(comando, [
+    transacao.usuario_id,
+    transacao.nome_transacao,
+    transacao.valor,
+    transacao.data_transacao,
+    transacao.tipo_transacao,
+  ]);
+
+  return result.insertId;
+}
+
+export {
+  BuscarDespesaDoMes,
+  BuscarReceitaDoMes,
+  BuscarTransacoesPorIDUsuario,
+  CriarTransacao,
+};

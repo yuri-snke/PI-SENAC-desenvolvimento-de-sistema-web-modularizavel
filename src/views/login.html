@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./JS/login.js" type="text/javascript"></script>
-    <script src="./JS/integracaoAPI.js" type="text/javascript"></script>
+    <script src="./js/login.js" type="text/javascript"></script>
+    <script src="./js/integracaoAPI.js" type="text/javascript"></script>
 
     <title>Site</title>
     <style>
@@ -18,19 +19,19 @@
             align-items: center;
             height: 100vh;
         }
-        
+
         .login-container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         .login-container h2 {
             margin-bottom: 20px;
             text-align: center;
         }
-        
+
         .login-container input[type="text"],
         .login-container input[type="password"] {
             width: 100%;
@@ -40,7 +41,7 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        
+
         .login-container input[type="submit"] {
             width: 100%;
             background-color: #4caf50;
@@ -51,12 +52,13 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-        
+
         .login-container input[type="submit"]:hover {
             background-color: #45a049;
         }
     </style>
 </head>
+
 <body>
     <div class="login-container">
         <h2>Login</h2>
@@ -66,7 +68,6 @@
             <input type="button" value="Entrar" onclick="FazerLogin()">
         </form>
     </div>
-
-    
 </body>
+
 </html>

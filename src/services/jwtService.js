@@ -11,7 +11,6 @@ function gerarToken(usuario) {
 
 // Função para verificar o token JWT
 function verificarToken(req, res, next) {
-
   const token = req.headers.authorization;
 
   if (!token) {
@@ -19,7 +18,6 @@ function verificarToken(req, res, next) {
   }
 
   const tokenFormat = req.headers.authorization.split(" ")[1];
-
 
   jwt.verify(tokenFormat, secret, (err, decoded) => {
     if (err) {

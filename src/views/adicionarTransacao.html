@@ -5,20 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
-    <script src="./css/script.js"></script>
+    <title>Adicionar transação</title>
+    <script src="./js/script.js"></script>
+    <script src="./js/adicionarTransacao.js"></script>
+    <script src="./js/integracaoAPI.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/inicio.css">
     <link rel="stylesheet" href="./css/transacoes.css">
     <link rel="stylesheet" href="./css/adicionarTransacao.css">
+    <link rel="stylesheet" href="./css/modalMensagem.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="import" href="modalMensagem.html">
+
 </head>
 
 <body>
-
-
     <header>
         <h2>Adicionar Transação</h2>
         <nav>
@@ -29,36 +32,38 @@
                 <li><a href="descontos.html">Descontos</a></li>
                 <li><a href="login.html">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
             </ul>
-
             <a class="mobile active" id="btn_mobile" onclick="abrir()"><i id="i-btn" class="fa-solid fa-bars"></i></a>
         </nav>
     </header>
 
-
+    <div id="modalMensagem" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p></p>
+        </div>
+    </div>
 
     <section class="lists">
         <h1>Preencha os dados da transação</h1>
+        <form class="formulario" id="transacaoForm" action="#">
+            <label for="nome_transacao">Nome da transação</label>
+            <input type="text" name="nomeTransacao" id="nome_transacao" required>
 
+            <label for="valor_transacao">Valor da transação</label>
+            <input type="text" name="valor_transacao" id="valor_transacao" oninput="formatarMoeda(this)" required>
 
-        <form class="formulario" action="" method="POST">
-            <label for="">Nome da transação</label>
-            <input type="text" name="" id="">
-            <label for="">Valor da transação</label>
-            <input type="number" name="" id="" max="10000">
+            <label for="tipo_transacao">Tipo de transação</label>
+            <select name="tipoTransacao" id="tipo_transacao" required>
+                <option value="despesa">Despesa</option>
+                <option value="receita">Receita</option>
+            </select>
 
+            <label for="data_transacao">Data da transação</label>
+            <input type="date" name="dataTransacao" id="data_transacao" required>
 
-
-            <button>Salvar Transação</button>
-
-
+            <input type="button" id="salvarTransacaoBtn" class="button" value="Salvar Transação">
         </form>
-
-
-
-
     </section>
-
-
 </body>
 
 </html>
