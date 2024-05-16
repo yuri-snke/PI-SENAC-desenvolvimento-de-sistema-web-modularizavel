@@ -15,4 +15,20 @@ function abrir() {
     menuMBL.classList.add("fa-bars");
     count--;
   }
+
+
+
+}
+
+function mostrarModal(){
+ 
+
+  confirm('Deseja Excluir?')
+}
+
+function Sair(){
+
+  var mdl = document.getElementById("modalConf");
+
+  mdl.style.display = "none";
 }

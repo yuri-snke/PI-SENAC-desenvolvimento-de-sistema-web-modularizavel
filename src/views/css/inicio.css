@@ -19,6 +19,7 @@
 }
 
 .lists {
+  
   text-decoration: none;
   background-color: #ffffff;
   margin-top: 50px;
@@ -28,11 +29,13 @@
 }
 
 .lists ul {
+  position: relative;
   display: block;
   text-decoration: none;
 }
 
 .lists ul li {
+  position: relative;
   text-decoration: none;
   display: flex;
   flex-direction: column;
