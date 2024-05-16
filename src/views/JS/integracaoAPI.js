@@ -12,6 +12,12 @@ async function PostAPI(route, body) {
 
     body: JSON.stringify(body),
   }).then(async function (response) {
+    console.log(response.status)
+    if(response.status == 401){
+      alert('Necessário fazer login!')
+      window.location.href = "./login.html";
+    }
+
     const data = await response.json();
     return data;
   });
@@ -29,6 +35,12 @@ async function GetAPI(route) {
       Authorization: token,
     },
   }).then(async function (response) {
+
+    console.log(response.status)
+    if(response.status == 401){
+      alert('Necessário fazer login!')
+      Logoff();
+    }
     const data = await response.json();
     return data;
   });
