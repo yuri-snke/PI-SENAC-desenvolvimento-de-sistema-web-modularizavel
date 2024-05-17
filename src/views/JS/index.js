@@ -5,10 +5,9 @@ document.addEventListener("DOMContentLoaded", async function (e) {
   const despesa = await GetAPI("/api/transacao/ObterDespesa");
   const receita = await GetAPI("/api/transacao/ObterReceita");
 
-  document.getElementById("saldo").innerHTML = "R$ " + saldo.valor;
-  document.getElementById("despesa").innerHTML = "R$ " + despesa.valor;
-  document.getElementById("receita").innerHTML = "R$ " + receita.valor;
-
+  document.getElementById("saldo").innerHTML = mascaraMoeda(saldo.valor);
+  document.getElementById("despesa").innerHTML = mascaraMoeda(despesa.valor);
+  document.getElementById("receita").innerHTML = mascaraMoeda(receita.valor);
   const agenda = await GetAPI("/api/agenda");
 
   agenda.forEach(async (element) => {

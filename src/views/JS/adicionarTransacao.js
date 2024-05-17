@@ -1,24 +1,3 @@
-function formatarMoeda(input) {
-  input.addEventListener("input", function (event) {
-    const onlyDigits = event.target.value
-      .split("")
-      .filter((s) => /\d/.test(s))
-      .join("")
-      .padStart(3, "0");
-
-    const digitsFloat = onlyDigits.slice(0, -2) + "." + onlyDigits.slice(-2);
-
-    event.target.value = maskCurrency(digitsFloat);
-  });
-}
-
-const maskCurrency = (valor, locale = "pt-BR", currency = "BRL") => {
-  return new Intl.NumberFormat(locale, {
-    style: "currency",
-    currency,
-  }).format(valor);
-};
-
 document.addEventListener("DOMContentLoaded", function () {
   async function enviarTransacao(transacaoData) {
     try {
@@ -35,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document
         .getElementById("valor_transacao")
         .value.replace(/[^\d,]/g, "")
-        .replace(",", "")
+        .replace(",", ".")
     ).toFixed(2);
     const tipoTransacao = document.getElementById("tipo_transacao").value;
     const dataTransacao = document.getElementById("data_transacao").value;
