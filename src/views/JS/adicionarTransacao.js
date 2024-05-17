@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
   async function enviarTransacao(transacaoData) {
     try {
       await PostAPI("/api/transacao", transacaoData);
-      exibirModal("Transação salva com sucesso!");
+      exibirModal("Transação salva com sucesso!", true);
     } catch (error) {
-      console.error("Erro ao enviar requisição para a API:", error);
       exibirModal("Erro ao salvar a transação. Por favor, tente novamente.");
     }
   }
@@ -26,23 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
       tipo_transacao: tipoTransacao,
       data_transacao: dataTransacao,
     };
-  }
-
-  function exibirModal(mensagem) {
-    const modalMensagem = document.getElementById("modalMensagem");
-    modalMensagem.querySelector("p").textContent = mensagem;
-    modalMensagem.style.display = "block";
-    setTimeout(function () {
-      modalMensagem.style.display = "none";
-      limparFormulario();
-    }, 3000);
-  }
-
-  function limparFormulario() {
-    const form = document.getElementById("transacaoForm");
-    if (form) {
-      form.reset();
-    }
   }
 
   document

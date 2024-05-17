@@ -32,7 +32,7 @@ async function CriarRegistro(registro) {
       }">Editar Transação <i class="fa-solid fa-pen-to-square"></i></a>
       <a onclick="confirmarExclusao(${
         registro.id
-      })">Excluir Transacao <i class="fa-solid fa-trash"></i></a>
+      })">Excluir Transação <i class="fa-solid fa-trash"></i></a>
       </div>`;
 
   document.getElementById("listaRegistros").appendChild(novoRegistro);

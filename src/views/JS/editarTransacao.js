@@ -61,12 +61,3 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.getElementById("modalMensagem").style.display = "none";
   });
 });
-
-function exibirModal(mensagem) {
-  const modalMensagem = document.getElementById("modalMensagem");
-  modalMensagem.querySelector("p").textContent = mensagem;
-  modalMensagem.style.display = "block";
-  setTimeout(function () {
-    modalMensagem.style.display = "none";
-  }, 3000);
-}

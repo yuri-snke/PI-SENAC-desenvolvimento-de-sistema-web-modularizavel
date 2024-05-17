@@ -18,3 +18,22 @@ function mascaraMoeda(valor, locale = "pt-BR", currency = "BRL") {
     currency,
   }).format(valor);
 }
+
+function exibirModal(mensagem, limpar = false) {
+  const modalMensagem = document.getElementById("modalMensagem");
+  modalMensagem.querySelector("p").textContent = mensagem;
+  modalMensagem.style.display = "block";
+  setTimeout(function () {
+    modalMensagem.style.display = "none";
+    if (limpar) {
+      limparFormulario();
+    }
+  }, 3000);
+}
+
+function limparFormulario() {
+  const form = document.getElementById("transacaoForm");
+  if (form) {
+    form.reset();
+  }
+}

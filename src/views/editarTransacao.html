@@ -47,21 +47,19 @@
         <h1>Preencha com os novos dados para alterar</h1>
         <form class="formulario" id="transacaoForm" action="#">
             <label for="nome_transacao">Nome da transação</label>
-            <input type="text" name="nomeTransacao" id="nome_transacao" placeholder="nome do item clicado aqui"
-                required>
+            <input type="text" name="nomeTransacao" id="nome_transacao">
 
             <label for="valor_transacao">Valor da transação</label>
-            <input type="text" name="valor_transacao" id="valor_transacao" placeholder="valor do item clicado aqui"
-                oninput="formatarMoeda(this)" required>
+            <input type="text" name="valor_transacao" id="valor_transacao" oninput="formatarMoeda(this)">
 
             <label for="tipo_transacao">Tipo de transação</label>
-            <select name="tipoTransacao" id="tipo_transacao" required>
+            <select name="tipoTransacao" id="tipo_transacao">
                 <option value="despesa">Despesa</option>
                 <option value="receita">Receita</option>
             </select>
 
             <label for="data_transacao">Data da transação</label>
-            <input type="date" name="dataTransacao" id="data_transacao" required><!--a data precisa ser puxada aqui -->
+            <input type="date" name="dataTransacao" id="data_transacao">
 
             <input type="button" id="editarTransacaoBtn" class="button" value="Editar Transação">
         </form>
