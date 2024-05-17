@@ -1,3 +1,4 @@
+import { Transacao } from "../../models/transacaoModel.js";
 import con from "../connection.js";
 
 async function BuscarTransacoesPorIDUsuario(userID) {
@@ -44,12 +45,69 @@ async function CriarTransacao(transacao) {
     transacao.tipo_transacao,
   ]);
 
-  return result.insertId;
+  return result[0]?.insertId;
+}
+
+async function ExcluirTransacao(transacao) {
+  let comando = `DELETE FROM tbl_transacao WHERE id = ? AND usuario_id = ?`;
+  const [result] = await con.query(comando, [
+    transacao.id,
+    transacao.usuario_id,
+  ]);
+
+  if (result?.affectedRows > 0) {
+    return result?.affectedRows;
+  } else {
+    throw new Error("Falha ao deletar transação.");
+  }
+}
+
+async function ObterTransacaoPorId(transacao) {
+  let comando = `SELECT * FROM tbl_transacao WHERE id = ? AND usuario_id = ?`;
+
+  const [result] = await con.query(comando, [
+    transacao.id,
+    transacao.usuario_id,
+  ]);
+
+  if (result.length > 0) {
+    const transacaoEncontrada = new Transacao(result[0]);
+    return transacaoEncontrada;
+  } else {
+    throw new Error("Não há registros a serem capturados.");
+  }
+}
+
+async function AtualizarTransacaoPorId(transacao) {
+  let transacaoSalva = await ObterTransacaoPorId(transacao);
+
+  if (transacaoSalva !== null) {
+    let comando = `UPDATE tbl_transacao SET
+      nome_transacao = ?, valor = ?, data_transacao = ?, tipo_transacao = ? WHERE id = ? AND usuario_id = ?`;
+
+    let result = await con.query(comando, [
+      transacao.nome_transacao,
+      transacao.valor,
+      transacao.data_transacao,
+      transacao.tipo_transacao,
+      transacao.id,
+      transacao.usuario_id,
+    ]);
+
+    if (result[0]?.affectedRows > 0) {
+      return transacao.id;
+    } else {
+      throw new Error("Falha ao deletar transação.");
+    }
+  }
 }
 
 export {
+  AtualizarTransacaoPorId,
   BuscarDespesaDoMes,
   BuscarReceitaDoMes,
   BuscarTransacoesPorIDUsuario,
   CriarTransacao,
+  ExcluirTransacao,
+  ObterTransacaoPorId,
 };

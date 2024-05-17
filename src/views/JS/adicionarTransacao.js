@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
       exibirModal("Transação salva com sucesso!");
     } catch (error) {
       console.error("Erro ao enviar requisição para a API:", error);
+      exibirModal("Erro ao salvar a transação. Por favor, tente novamente.");
     }
   }
 

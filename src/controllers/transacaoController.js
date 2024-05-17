@@ -1,8 +1,11 @@
 import {
+  AtualizarTransacaoPorId,
   BuscarDespesaDoMes,
   BuscarReceitaDoMes,
   BuscarTransacoesPorIDUsuario,
   CriarTransacao,
+  ExcluirTransacao,
+  ObterTransacaoPorId,
 } from "../data/repositories/transacaoRepository.js";
 import { Transacao } from "../models/transacaoModel.js";
 
@@ -13,10 +16,10 @@ const obterTransacoes = async (req, res) => {
     if (results.length > 0) {
       res.send(results);
     } else {
-      res.status(404).json({ message: "Nenhum resultado encontrado" });
+      res.status(404).send({ message: "Nenhum resultado encontrado" });
     }
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).send({ error: err.message });
   }
 };
 
@@ -26,7 +29,7 @@ const obterDespesaMensal = async (req, res) => {
 
     res.send(results);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).send({ error: err.message });
   }
 };
 
@@ -36,7 +39,7 @@ const obterReceitaMensal = async (req, res) => {
 
     res.send(results);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).send({ error: err.message });
   }
 };
 
@@ -48,7 +51,7 @@ const obterSaldo = async (req, res) => {
 
     res.send({ valor: saldo });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).send({ error: err.message });
   }
 };
 
@@ -61,16 +64,68 @@ const criarTransacao = async (req, res) => {
 
     const transacaoId = await CriarTransacao(transacao);
 
-    res.status(201).json({ id: transacaoId, ...transacao.toJSON() });
+    res.send({
+      message: "Transação criada com sucesso!",
+      id: transacaoId,
+    });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).send({ error: err.message });
+  }
+};
+
+const excluirTransacao = async (req, res) => {
+  try {
+    const transacao = {
+      id: req.params.id,
+      usuario_id: req.usuario.userId,
+    };
+
+    await ExcluirTransacao(transacao);
+    res.send({ mensagem: "Transação deletada com sucesso!" });
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
+
+const obterTransacaoPorId = async (req, res) => {
+  try {
+    const transacao = new Transacao({
+      id: req.params.id,
+      usuario_id: req.usuario.userId,
+    });
+
+    const result = await ObterTransacaoPorId(transacao);
+    res.send(result);
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+};
+
+const atualizarTransacaoPorId = async (req, res) => {
+  try {
+    const transacao = new Transacao({
+      id: req.params.id,
+      usuario_id: req.usuario.userId,
+      ...req.body,
+    });
+
+    const transacaoId = await AtualizarTransacaoPorId(transacao);
+    res.send({
+      message: "Transação atualizada com sucesso!",
+      id: transacaoId,
+    });
+  } catch (error) {
+    res.status(500).send({ error: error.message });
   }
 };
 
 export {
+  atualizarTransacaoPorId,
   criarTransacao,
+  excluirTransacao,
   obterDespesaMensal,
   obterReceitaMensal,
   obterSaldo,
+  obterTransacaoPorId,
   obterTransacoes,
 };

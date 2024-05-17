@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transações</title>
     <script src="./js/script.js"></script>
+    <script src="./js/transacoes.js"></script>
+    <script src="./js/integracaoAPI.js"></script>
+    <script src="./js/util.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/inicio.css">
     <link rel="stylesheet" href="./css/transacoes.css">
@@ -29,59 +32,10 @@
         </nav>
     </header>
 
-    
-
     <section class="lists">
         <h1>Aconselhamentos Financeiros</h1>
         <button><a href="adicionarTransacao.html">Adicionar Transação</a></button>
-        <ul>
-            <li>
-                <p class="ID_transacao">ID: 1</p> <!--Coloquei o ID aqui invisivel para o usuario para facilictar na hora de clicar e puxar pelo ID os dados-->
-                <h4>Reduza Despesas Desnecessárias</h4>
-                <p>10:00 - Sala de Confêrencias</p>
-                <p class="transacao">Transação: R$ 150 em refeições fora de casa</p>
-
-                <div class="btns">
-                    <a href="editarTransacao.html">Editar Transação <i class="fa-solid fa-pen-to-square"></i></a>
-                    <a onclick="confirm('Deseja excluir o item...')">Excluir Transacao <i class="fa-solid fa-trash"></i></a>
-                </div>
-            </li>
-            <li>
-                <p class="ID_transacao">ID: 2</p>  <!--Coloquei o ID aqui invisivel para o usuario para facilictar na hora de clicar e puxar pelo ID os dados-->
-                <h4>Estebeleça Metas Financeiras</h4>
-                <p>Defina objetivos financeiros claros e crie um plano para alcançá-los</p>
-                <p class="transacao">Transação: R$500 investidos em uma conta poupança</p>
-
-                
-                <div class="btns">
-                    <a href="editarTransacao.html">Editar Transação <i class="fa-solid fa-pen-to-square"></i></a>
-                    <a onclick="confirm('Deseja excluir o item...')">Excluir Transacao <i class="fa-solid fa-trash"></i></a>
-                </div>
-            </li>
-            <li>
-                <p class="ID_transacao">ID: 3</p>  <!--Coloquei o ID aqui invisivel para o usuario para facilictar na hora de clicar e puxar pelo ID os dados-->
-                <h4>Construa um Fundo de Emergência</h4>
-                <p>Reserve parte de sua renda para imprevistos e situações de emergência</p>
-                <p class="transacao">Transação: R$1000 adicionados a uma conta de emergência</p>
-
-                
-                <div class="btns">
-                    <a href="editarTransacao.html">Editar Transação <i class="fa-solid fa-pen-to-square"></i></a>
-                    <a onclick="confirm('Deseja excluir o item...')">Excluir Transacao <i class="fa-solid fa-trash"></i></a>
-                </div>
-            </li>
-            <li>
-                <p class="ID_transacao">ID: 4</p>  <!--Coloquei o ID aqui invisivel para o usuario para facilictar na hora de clicar e puxar pelo ID os dados-->
-                <h4>Invista em Educação Financeira</h4>
-                <p>Busque conhecimentoo sobre finanças pessoais e investimentos</p>
-                <p class="transacao">Transação: R$200 em livros sobre investimentos</p>
-
-                
-                <div class="btns">
-                    <a href="editarTransacao.html">Editar Transação <i class="fa-solid fa-pen-to-square"></i></a>
-                    <a onclick="confirm('Deseja excluir o item...')">Excluir Transacao <i class="fa-solid fa-trash"></i></a>
-                </div>
-            </li>
+        <ul id="listaRegistros">
         </ul>
     </section>
 </body>

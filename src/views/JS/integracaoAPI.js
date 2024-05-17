@@ -12,9 +12,8 @@ async function PostAPI(route, body) {
 
     body: JSON.stringify(body),
   }).then(async function (response) {
-    console.log(response.status)
-    if(response.status == 401){
-      alert('Necessário fazer login!')
+    if (response.status == 401) {
+      alert("Necessário fazer login!");
       window.location.href = "./login.html";
     }
 
@@ -35,12 +34,55 @@ async function GetAPI(route) {
       Authorization: token,
     },
   }).then(async function (response) {
-
-    console.log(response.status)
-    if(response.status == 401){
-      alert('Necessário fazer login!')
+    if (response.status == 401) {
+      alert("Necessário fazer login!");
       Logoff();
     }
+    const data = await response.json();
+    return data;
+  });
+
+  return result;
+}
+
+async function DeleteAPI(route) {
+  const token = await BuscaToken();
+
+  const result = await fetch(baseURL + route, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+  }).then(async function (response) {
+    if (response.status == 401) {
+      alert("Necessário fazer login!");
+      Logoff();
+    }
+    const data = await response.json();
+    return data;
+  });
+
+  return result;
+}
+
+async function PutAPI(route, body) {
+  const token = await BuscaToken();
+
+  const result = await fetch(baseURL + route, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token,
+    },
+    body: JSON.stringify(body),
+  }).then(async function (response) {
+    if (response.status == 401) {
+      alert("Necessário fazer login!");
+      window.location.href = "./login.html";
+      return;
+    }
+
     const data = await response.json();
     return data;
   });

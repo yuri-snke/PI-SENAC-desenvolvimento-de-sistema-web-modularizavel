@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Altere a transação</title>
+    <title>Editar transação</title>
     <script src="./js/script.js"></script>
-    <script src="./js/adicionarTransacao.js"></script>
     <script src="./js/integracaoAPI.js"></script>
+    <script src="./js/editarTransacao.js"></script>
+    <script src="./js/util.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/inicio.css">
     <link rel="stylesheet" href="./css/transacoes.css">
@@ -46,10 +47,12 @@
         <h1>Preencha com os novos dados para alterar</h1>
         <form class="formulario" id="transacaoForm" action="#">
             <label for="nome_transacao">Nome da transação</label>
-            <input type="text" name="nomeTransacao" id="nome_transacao" placeholder="nome do item clicado aqui" required>
+            <input type="text" name="nomeTransacao" id="nome_transacao" placeholder="nome do item clicado aqui"
+                required>
 
             <label for="valor_transacao">Valor da transação</label>
-            <input type="text" name="valor_transacao" id="valor_transacao" placeholder="valor do item clicado aqui"  oninput="formatarMoeda(this)" required>
+            <input type="text" name="valor_transacao" id="valor_transacao" placeholder="valor do item clicado aqui"
+                oninput="formatarMoeda(this)" required>
 
             <label for="tipo_transacao">Tipo de transação</label>
             <select name="tipoTransacao" id="tipo_transacao" required>
@@ -58,7 +61,7 @@
             </select>
 
             <label for="data_transacao">Data da transação</label>
-            <input type="date" name="dataTransacao" id="data_transacao"  required><!--a data precisa ser puxada aqui -->
+            <input type="date" name="dataTransacao" id="data_transacao" required><!--a data precisa ser puxada aqui -->
 
             <input type="button" id="editarTransacaoBtn" class="button" value="Editar Transação">
         </form>
