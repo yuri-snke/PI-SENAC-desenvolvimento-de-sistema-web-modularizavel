@@ -13,8 +13,7 @@ const criarUsuario = async (req, res) => {
       const transacaoId = await CriarUsuario(usuario);
   
       res.send({
-        message: "Transação criada com sucesso!",
-        id: transacaoId,
+        message: "Usuário criado com sucesso!"
       });
     } catch (err) {
       res.status(500).send({ error: err.message });
