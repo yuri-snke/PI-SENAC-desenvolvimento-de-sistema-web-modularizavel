@@ -8,3 +8,7 @@ async function FazerLogin() {
 
   window.location.href = "./index.html";
 }
+
+async function RedirectCriarUsuario(){
+  window.location.href = "./criarUsuario.html";
+}

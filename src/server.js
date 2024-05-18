@@ -4,6 +4,7 @@ import express from "express";
 import { rotasAgenda } from "./routes/rotasAgenda.js";
 import { rotasLogin } from "./routes/rotasLogin.js";
 import { rotasTransacao } from "./routes/rotasTransacao.js";
+import { rotasUsuario } from "./routes/rotasUsuario.js";
 
 const app = express();
 app.use(cors());
@@ -13,6 +14,7 @@ const PORT = process.env.PORT;
 
 // Rotas
 app.use("/api/login", rotasLogin());
+app.use("/api/usuario", rotasUsuario());
 app.use("/api/transacao", rotasTransacao());
 app.use("/api/agenda", rotasAgenda());
 

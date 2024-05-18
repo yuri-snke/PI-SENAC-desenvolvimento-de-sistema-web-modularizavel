@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="./JS/adicionarUsuario.js" type="text/javascript"></script>
+    <script src="./JS/integracaoAPI.js" type="text/javascript"></script>
+
+    <title>Login</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Cadastro Usuário</h2>
+        <form action="#" class="frm">
+            <label for="login">Nome:</label>
+            <input id="nome" type="text" required>
+            <label for="login">Email:</label>
+            <input id="email" type="text" onchange="validacaoEmail()" required>
+            <p id="respostaEmail"></p>
+            <label for="senha">Senha:</label>
+            <input id="senha" type="password" onkeyup="validaSenha()" required>
+            <p id="respostaSenha"></p>
+            <label for="senha">Confirmar senha:</label>            
+            <input id="senhaConf" type="password" onkeyup="comparaSenhas()" required>
+            <p id="respostaSenhaConf"></p>
+            <input type="button" value="Cadastrar " onclick="CriarUsuario()">
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>

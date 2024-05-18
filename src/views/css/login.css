@@ -74,6 +74,11 @@ body{
     box-sizing: border-box;
 }
 
+#btnCriarUsuario{
+    background-color: rgba(0, 0, 0, 0); 
+    color: black;
+}
+
 
 
 
