@@ -13,7 +13,6 @@ import { verificarToken } from "../services/jwtService.js";
 const router = express.Router();
 
 export function rotasTransacao() {
-  // Rotas
   router.get("/", verificarToken, (req, res) => obterTransacoes(req, res));
   router.get("/ObterReceita", verificarToken, (req, res) =>
     obterReceitaMensal(req, res)

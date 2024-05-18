@@ -13,7 +13,6 @@ app.use(express.json());
 
 const PORT = process.env.PORT;
 
-// Rotas
 app.use("/api/login", rotasLogin());
 app.use("/api/usuario", rotasUsuario());
 app.use("/api/transacao", rotasTransacao());
