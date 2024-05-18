@@ -14,17 +14,6 @@ class Transacao {
     this.data_transacao = new Date(data_transacao);
     this.tipo_transacao = tipo_transacao;
   }
-
-  toJSON() {
-    return {
-      id: this.id,
-      usuario_id: this.usuario_id,
-      nome_transacao: this.nome_transacao,
-      valor: this.valor,
-      data_transacao: this.data_transacao,
-      tipo_transacao: this.tipo_transacao,
-    };
-  }
 }
 
 export { Transacao };

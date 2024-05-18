@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Descontos</title>
+    <script src="./js/integracaoAPI.js"></script>
+    <script src="./js/util.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/descontos.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/inicio.css">
     <link rel="stylesheet" href="./css/transacoes.css">
@@ -31,20 +34,8 @@
     </header>
 
     <section class="lists">
-        <h1>Parceiros e Descontos Disponíveis:</h1>
-        <ul>
-            <li>
-                <h4>Supermercado XYZ</h4>
-                <p>Desconto de 10% em todas as compras apresentando o cartão de cliente</p>
-            </li>
-            <li>
-                <h4>Clínica Médica ABC</h4>
-                <p>Desconto de 20% em consultas agendadas online pelo site da clínica</p>
-            </li>
-            <li>
-                <h4>Loja de Utilidades QRS</h4>
-                <p>Desconto de 15% em produtos selecionados para clientes cadastrados</p>
-            </li>
+        <h1>Descontos Disponíveis</h1>
+        <ul id="listaDescontos">
         </ul>
     </section>
 </body>
