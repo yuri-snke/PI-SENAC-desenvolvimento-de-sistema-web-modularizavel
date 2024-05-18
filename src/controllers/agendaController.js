@@ -1,4 +1,5 @@
-import { BuscarAgendaPorIDUsuario } from "../data/repositories/agendaRepository.js";
+import { BuscarAgendaPorIDUsuario, CriarAgenda } from "../data/repositories/agendaRepository.js";
+import { Agenda } from "../models/agendaModel.js";
 
 const obterAgenda = async (req, res) => {
     try {
@@ -14,4 +15,22 @@ const obterAgenda = async (req, res) => {
     }
   };
 
-  export {obterAgenda}
+  const criarAgenda = async (req, res) => {
+    try {
+      const agenda = new Agenda({
+        ...req.body,
+        usuario_id :req.usuario.userId
+      });
+  
+      const agendaId = await CriarAgenda(agenda);
+  
+      res.send({
+        message: "Agenda criada com sucesso!",
+        id: agendaId,
+      });
+    } catch (err) {
+      res.status(500).send({ error: err.message });
+    }
+  };
+
+  export {obterAgenda, criarAgenda}

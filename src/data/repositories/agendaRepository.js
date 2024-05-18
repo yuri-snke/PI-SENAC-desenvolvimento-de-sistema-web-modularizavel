@@ -6,5 +6,21 @@ async function BuscarAgendaPorIDUsuario(userID) {
     const [linhas] = await con.query(comando, [userID]);
   
     return linhas;
-  }
-export { BuscarAgendaPorIDUsuario };
+}
+
+async function CriarAgenda(agenda) {
+  let comando = `INSERT INTO tbl_agenda
+                (usuario_id, titulo, data_inicio, data_fim)
+                VALUES (?, ?, ?, ?)`;
+
+  let result = await con.query(comando, [
+    agenda.usuario_id,
+    agenda.titulo,
+    agenda.data_inicio,
+    agenda.data_fim,
+  ]);
+
+}
+
+
+export { BuscarAgendaPorIDUsuario, CriarAgenda };
