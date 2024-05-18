@@ -4,7 +4,6 @@ async function CriarUsuario(){
     const senha = document.getElementById("senha").value;
     const senhaConf = document.getElementById("senhaConf").value;
 
-    console.log(nome.length)
 
     if(validaCriacao(nome, email,senha,senhaConf)){
         
@@ -14,13 +13,9 @@ async function CriarUsuario(){
             senha:senha
         }
 
-        try {
-            await PostAPI('/api/usuario', usuario)
-            alert("Usuário cadastrado com sucesso!");
-            window.location.href = "./login.html";  
-          } catch (error) {
-            alert("Erro ao salvar a transação. Por favor, tente novamente.");
-          }
+        
+        await InsereUsuario('/api/usuario', usuario)
+          
         
     }
 
@@ -67,8 +62,7 @@ async function validaSenha() {
 function comparaSenhas() {
     const senha = document.getElementById("senha").value;
     const senhaConf = document.getElementById("senhaConf").value;
-    console.log(senhaConf)
-    console.log(senha)
+    
 
     if(senha == senhaConf)
         document.getElementById("respostaSenhaConf").innerHTML="";
@@ -81,14 +75,9 @@ function comparaSenhas() {
     
 }
 
-
-
-
-
 function validacaoEmail(field) {
 
     const email = document.getElementById("email").value;
-    console.log(email)
     usuario = email.substring(0, email.indexOf("@"));
     dominio = email.substring(email.indexOf("@")+ 1, email.length);
     
@@ -110,3 +99,29 @@ function validacaoEmail(field) {
     }
 }
 
+
+async function InsereUsuario(route, body) {
+    const token = await BuscaToken();
+  
+    const result = await fetch(baseURL + route, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify(body),
+    }).then(async function (response) {
+      if (response.status == 409) {
+        alert("email já cadastrado!");
+      } else if (response.status == 200) {
+        alert("Usuário cadastrado com sucesso!");
+        window.location.href = "./login.html";
+      } else {
+        alert("Erro ao salvar a transação. Por favor, tente novamente.");
+      }
+    }).catch(async function(error){
+      // Aqui estamos capturando o erro gerado pela Promise
+      console.error("Erro ao fazer a requisição:", error);
+      alert("Erro ao fazer a requisição. Por favor, tente novamente.");
+    });
+  }

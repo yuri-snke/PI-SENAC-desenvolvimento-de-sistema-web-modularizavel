@@ -12,4 +12,16 @@ async function CriarUsuario(usuario) {
     ]);  
   }
 
-  export {CriarUsuario}
+  async function obterUsuarioEmail(usuario) {
+    let comando = `select * from tbl_usuario where email = ?`;
+  
+    const [linhas] = await con.query(comando, [
+      usuario.email
+    ]);  
+
+    console.log(linhas)
+
+    return linhas;
+  }
+
+  export {CriarUsuario, obterUsuarioEmail}
