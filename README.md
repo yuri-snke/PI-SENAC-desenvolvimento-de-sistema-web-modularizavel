@@ -13,7 +13,7 @@ PORT=5000
 HOST=    
 USER=    
 PWD=    
-DB=    
+DB=pi_senac_saude      
 - Criar a base de dados e as tabelas usando o script encontrado na raiz do projeto [**dump.sql**](https://github.com/yuri-snke/PI-SENAC-desenvolvimento-de-sistema-web-modularizavel/blob/master/dump.sql).
 
 ## Execução
