@@ -19,20 +19,20 @@ function mascaraMoeda(valor, locale = "pt-BR", currency = "BRL") {
   }).format(valor);
 }
 
-function exibirModal(mensagem, limpar = false) {
+function exibirModal(mensagem, formulario = null) {
   const modalMensagem = document.getElementById("modalMensagem");
   modalMensagem.querySelector("p").textContent = mensagem;
   modalMensagem.style.display = "block";
   setTimeout(function () {
     modalMensagem.style.display = "none";
-    if (limpar) {
-      limparFormulario();
+    if (formulario) {
+      limparFormulario(formulario);
     }
   }, 3000);
 }
 
-function limparFormulario() {
-  const form = document.getElementById("transacaoForm");
+function limparFormulario(formulario) {
+  const form = document.getElementById(formulario);
   if (form) {
     form.reset();
   }

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   async function enviarTransacao(transacaoData) {
     try {
       await PostAPI("/api/transacao", transacaoData);
-      exibirModal("Transação salva com sucesso!", true);
+      exibirModal("Transação salva com sucesso!", "transacaoForm");
     } catch (error) {
       exibirModal("Erro ao salvar a transação. Por favor, tente novamente.");
     }
@@ -47,5 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelector(".close").addEventListener("click", function () {
     document.getElementById("modalMensagem").style.display = "none";
+    window.location.href = "./transacoes.html";
   });
 });

@@ -57,7 +57,6 @@ async function confirmarExclusao(id) {
         }
       }
     } catch (error) {
-      console.error("Erro ao excluir transação:", error);
       alert("Erro ao excluir transação. Por favor, tente novamente.");
     }
   }

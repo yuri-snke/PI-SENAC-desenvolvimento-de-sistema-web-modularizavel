@@ -52,7 +52,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         await PutAPI(`/api/transacao/${transacaoId}`, dadosAtualizados);
         exibirModal("Transação atualizada com sucesso!");
       } catch (error) {
-        console.error("Erro ao atualizar transação:", error);
         exibirModal("Erro ao atualizar transação. Por favor, tente novamente.");
       }
     });

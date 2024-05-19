@@ -91,9 +91,9 @@ const populateData = async (connection) => {
 
   // Populando tabela tbl_agenda
   const eventos = [
-    [1, "Evento 1", "2024-05-25 08:00:00", "2024-05-25 09:00:00"],
-    [1, "Evento 2", "2024-05-26 08:00:00", "2024-05-26 09:00:00"],
-    [1, "Evento 3", "2024-05-27 08:00:00", "2024-05-27 09:00:00"],
+    [1, "Evento 1", new Date(), "2024-05-25 09:00:00"],
+    [1, "Evento 2", new Date(), "2024-05-26 09:00:00"],
+    [1, "Evento 3", new Date(), "2024-05-27 09:00:00"],
   ];
 
   for (const evento of eventos) {
