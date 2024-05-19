@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         nome_transacao: nome,
         valor: valor,
         tipo_transacao: tipo,
-        data_transacao: data,
+        data_transacao: new Date(data).toISOString(),
       };
 
       try {

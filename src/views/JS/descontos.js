@@ -19,9 +19,9 @@ async function CriarDesconto(desconto) {
   <p>Valor original do curso: <b>${mascaraMoeda(desconto.preco)}</b></p>
   <p>Desconto de: <b>${desconto.desconto_percentual}%</b></p>
   <p>Valor com desconto: <b>${mascaraMoeda(valorComDesconto)}</b></p>
-  <p>Válido de: <b>${new Date(desconto.data_inicio).toLocaleDateString(
-    "pt-BR"
-  )}</b> até <b>${new Date(desconto.data_fim).toLocaleDateString("pt-BR")}</b>`;
+  <p>Válido de: <b>${formatarDataPTBR(
+    desconto.data_inicio
+  )}</b> até <b>${formatarDataPTBR(desconto.data_fim)}</b>`;
 
   document.getElementById("listaDescontos").appendChild(novoDesconto);
 }

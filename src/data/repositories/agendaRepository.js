@@ -24,10 +24,7 @@ async function CriarAgenda(agenda) {
 
 async function ExcluirAgenda(agenda) {
   let comando = `DELETE FROM tbl_agenda WHERE id = ? AND usuario_id = ?`;
-  const [result] = await con.query(comando, [
-    agenda.id,
-    agenda.usuario_id,
-  ]);
+  const [result] = await con.query(comando, [agenda.id, agenda.usuario_id]);
 
   if (result?.affectedRows > 0) {
     return result?.affectedRows;
@@ -39,18 +36,10 @@ async function ExcluirAgenda(agenda) {
 async function ObterAgendaPorId(agenda) {
   let comando = `SELECT * FROM tbl_agenda WHERE id = ? AND usuario_id = ?`;
 
-  const [result] = await con.query(comando, [
-    agenda.id,
-    agenda.usuario_id,
-  ]);
-
-  console.log(result)
+  const [result] = await con.query(comando, [agenda.id, agenda.usuario_id]);
 
   if (result.length > 0) {
     const agendaEncontrada = new Agenda(result[0]);
-
-    console.log(agendaEncontrada)
-
 
     return agendaEncontrada;
   } else {
@@ -70,7 +59,7 @@ async function AtualizarAgendaPorId(agenda) {
       agenda.data_inicio,
       agenda.data_fim,
       agenda.id,
-      agenda.usuario_id
+      agenda.usuario_id,
     ]);
 
     if (result[0]?.affectedRows > 0) {
@@ -81,4 +70,10 @@ async function AtualizarAgendaPorId(agenda) {
   }
 }
 
-export { BuscarAgendaPorIDUsuario, CriarAgenda, ObterAgendaPorId, AtualizarAgendaPorId,ExcluirAgenda };
+export {
+  AtualizarAgendaPorId,
+  BuscarAgendaPorIDUsuario,
+  CriarAgenda,
+  ExcluirAgenda,
+  ObterAgendaPorId,
+};

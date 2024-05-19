@@ -4,6 +4,8 @@ DROP DATABASE IF EXISTS pi_senac_saude;
 -- create the database
 CREATE DATABASE pi_senac_saude;
 
+SET time_zone = '+00:00';
+
 -- use the database
 USE pi_senac_saude;
 

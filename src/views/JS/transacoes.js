@@ -15,15 +15,13 @@ document.addEventListener("DOMContentLoaded", async function (e) {
 async function CriarRegistro(registro) {
   const novoRegistro = document.createElement("li");
 
-  const dataFormatada = new Date(registro.data_transacao).toLocaleDateString(
-    "pt-BR"
-  );
-
   novoRegistro.innerHTML = `<p class="ID_transacao" style="display:none;">ID: ${
     registro.id
   }</p>
       <h4>${registro.nome_transacao}</h4>
-      <p>Data da transação: <b>${dataFormatada}</b></p>
+      <p>Data da transação: <b>${formatarDataPTBR(
+        registro.data_transacao
+      )}</b></p>
       <p>Tipo de transação: <b>${registro.tipo_transacao.toUpperCase()}</b></p>
       <p class="transacao">Valor: <b>${mascaraMoeda(registro.valor)}</b></p>
       <div class="btns">

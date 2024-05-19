@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nome_transacao: nomeTransacao,
       valor: valorTransacao,
       tipo_transacao: tipoTransacao,
-      data_transacao: dataTransacao,
+      data_transacao: new Date(dataTransacao).toISOString(),
     };
   }
 

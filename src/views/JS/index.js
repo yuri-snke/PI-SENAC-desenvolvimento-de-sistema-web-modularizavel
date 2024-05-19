@@ -18,24 +18,18 @@ document.addEventListener("DOMContentLoaded", async function (e) {
 async function CriarListaAgenda(item) {
   const newItem = document.createElement("li");
   newItem.innerHTML =
-    `<p class="ID_agenda" style="display:none;">ID: ${
-      item.id
-    }</p>
+    `<p class="ID_agenda" style="display:none;">ID: ${item.id}</p>
     <h4>` +
     item.titulo +
     `</h4>
     <p>` +
-    item.hora +
+    formatHourUTCToAmericaSaoPaulo(item.hora) +
     ` - duração: ` +
     item.duracao +
-    ` minutos </p>`+
+    ` minutos </p>` +
     ` <div class="btns">
-      <a href="editarAgenda.html?id=${
-        item.id
-      }">Editar Agenda <i class="fa-solid fa-pen-to-square"></i></a>
-      <a onclick="confirmarExclusao(${
-        item.id
-      })">Excluir Agenda <i class="fa-solid fa-trash"></i></a>
+      <a href="editarAgenda.html?id=${item.id}">Editar Agenda <i class="fa-solid fa-pen-to-square"></i></a>
+      <a onclick="confirmarExclusao(${item.id})">Excluir Agenda <i class="fa-solid fa-trash"></i></a>
       </div>`;
   document.getElementById("listaAgenda").appendChild(newItem);
 }
@@ -63,5 +57,3 @@ async function confirmarExclusao(id) {
     }
   }
 }
-
-

@@ -6,7 +6,7 @@ let con = await mysql.createConnection({
   user: process.env.USER,
   password: process.env.PWD,
   database: process.env.DB,
-  dateStrings: true
+  timezone: "Z",
 });
 
 export default con;

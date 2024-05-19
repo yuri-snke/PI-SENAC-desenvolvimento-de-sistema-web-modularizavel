@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return {
       titulo: tituloAgenda,
-      data_inicio: dataInicioAgenda,
-      data_fim: dataFimAgenda,
+      data_inicio: new Date(dataInicioAgenda).toISOString(),
+      data_fim: new Date(dataFimAgenda).toISOString(),
     };
   }
 

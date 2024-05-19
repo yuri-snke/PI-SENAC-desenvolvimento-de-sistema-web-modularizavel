@@ -37,3 +37,26 @@ function limparFormulario(formulario) {
     form.reset();
   }
 }
+
+function formatHourUTCToAmericaSaoPaulo(hora) {
+  const [horas, minutos] = hora.split(":");
+  const horaLocal = new Date();
+  horaLocal.setUTCHours(Number(horas), Number(minutos));
+  const options = {
+    timeZone: "America/Sao_Paulo",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  };
+
+  return horaLocal.toLocaleTimeString("pt-BR", options);
+}
+
+function formatarDataPTBR(dataUTC) {
+  const data = new Date(dataUTC);
+  const dia = data.getUTCDate().toString().padStart(2, "0");
+  const mes = (data.getUTCMonth() + 1).toString().padStart(2, "0");
+  const ano = data.getUTCFullYear();
+
+  return `${dia}/${mes}/${ano}`;
+}
