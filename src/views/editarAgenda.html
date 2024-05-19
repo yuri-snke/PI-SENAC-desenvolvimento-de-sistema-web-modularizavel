@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editar agenda</title>
+    <script src="./js/script.js"></script>
+    <script src="./js/editarAgenda.js"></script>
+    <script src="./js/integracaoAPI.js"></script>
+    <script src="./js/util.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/inicio.css">
+    <link rel="stylesheet" href="./css/transacoes.css">
+    <link rel="stylesheet" href="./css/adicionarAgenda.css">
+    <link rel="stylesheet" href="./css/modalMensagem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <header>
+        <h2>Editar agenda</h2>
+        <nav>
+            <ul id="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="transacoes.html">Transações</a></li>
+                <li><a href="cursos.html">Cursos</a></li>
+                <li><a href="descontos.html">Descontos</a></li>
+                <li><a href="login.html">Sair <i class="fa-solid fa-arrow-right-from-bracket"></i></a></li>
+            </ul>
+            <a class="mobile active" id="btn_mobile" onclick="abrir()"><i id="i-btn" class="fa-solid fa-bars"></i></a>
+        </nav>
+    </header>
+
+    <div id="modalMensagem" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p></p>
+        </div>
+    </div>
+
+    <section class="lists">
+        <h1>Preencha os dados da agenda</h1>
+        <form class="formulario" id="agendaForm" action="#">
+            <label for="tituloAgenda">Titulo da agenda</label>
+            <input type="text" name="tituloAgenda" id="tituloAgenda">
+
+            <label for="dataInicioAgenda">Data de Início</label>
+            <input type="datetime-local" name="dataInicioAgenda" id="dataInicioAgenda">
+
+            <label for="dataFimAgenda">Data de fim</label>
+            <input type="datetime-local" name="dataFimAgenda" id="dataFimAgenda">
+
+
+            <input type="button" id="salvarAgendaBtn" class="button" value="Salvar Agenda">
+        </form>
+    </section>
+</body>
+
+</html>

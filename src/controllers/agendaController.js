@@ -1,4 +1,4 @@
-import { BuscarAgendaPorIDUsuario, CriarAgenda } from "../data/repositories/agendaRepository.js";
+import { BuscarAgendaPorIDUsuario, CriarAgenda, ObterAgendaPorId, AtualizarAgendaPorId,ExcluirAgenda } from "../data/repositories/agendaRepository.js";
 import { Agenda } from "../models/agendaModel.js";
 
 const obterAgenda = async (req, res) => {
@@ -33,4 +33,59 @@ const obterAgenda = async (req, res) => {
     }
   };
 
-  export {obterAgenda, criarAgenda}
+  const excluirAgenda = async (req, res) => {
+    try {
+      const agenda = new Agenda({
+        ...req.body,
+        usuario_id :req.usuario.userId
+      });
+  
+      const agendaId = await ExcluirAgenda(agenda);
+  
+      res.send({
+        message: "Agenda deletada com sucesso!",
+        id: agendaId,
+      });
+    } catch (err) {
+      res.status(500).send({ error: err.message });
+    }
+  };
+
+  const obterAgendaPorId = async (req, res) => {
+    try {
+      const agenda = new Agenda({
+        id: req.params.id,
+        usuario_id :req.usuario.userId
+      });
+
+      const result = await ObterAgendaPorId(agenda);
+  
+      res.send(result);
+    } catch (err) {
+      res.status(500).send({ error: err.message });
+    }
+  };
+
+  const atualizarAgendaPorId = async (req, res) => {
+    try {
+      const agenda = new Agenda({
+        id:req.params.id,
+        ...req.body,
+        usuario_id :req.usuario.userId
+
+      });      
+  
+      const agendaId = await AtualizarAgendaPorId(agenda);
+  
+      res.send({
+        message: "Agenda criada com sucesso!",
+        id: agendaId,
+      });
+    } catch (err) {
+      res.status(500).send({ error: err.message });
+    }
+  };
+
+  
+
+  export {obterAgenda, criarAgenda, excluirAgenda, atualizarAgendaPorId,obterAgendaPorId}

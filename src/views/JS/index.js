@@ -26,6 +26,14 @@ async function CriarListaAgenda(item) {
     item.hora +
     ` - duração: ` +
     item.duracao +
-    ` minutos </p>`;
+    ` minutos </p>`+
+    ` <div class="btns">
+      <a href="editarAgenda.html?id=${
+        item.id
+      }">Editar Agenda <i class="fa-solid fa-pen-to-square"></i></a>
+      <a onclick=""(${
+        item.id
+      })">Excluir Agenda <i class="fa-solid fa-trash"></i></a>
+      </div>`;
   document.getElementById("listaAgenda").appendChild(newItem);
 }
