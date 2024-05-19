@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", async function () {
   async function enviarAgenda(agendaData) {
     try {
       await PutAPI(`/api/agenda/${agendaId}`, agendaData);
-      exibirModal("Agenda salva com sucesso!", "agendaForm");
+      exibirModal("Agenda atualizada com sucesso!");
     } catch (error) {
-      exibirModal("Erro ao salvar a agenda. Por favor, tente novamente.");
+      exibirModal("Erro ao atualizar a agenda. Por favor, tente novamente.");
     }
   }
 
