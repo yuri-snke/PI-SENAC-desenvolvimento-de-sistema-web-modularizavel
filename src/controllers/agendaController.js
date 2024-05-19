@@ -36,8 +36,8 @@ const obterAgenda = async (req, res) => {
   const excluirAgenda = async (req, res) => {
     try {
       const agenda = new Agenda({
-        ...req.body,
-        usuario_id :req.usuario.userId
+        id:req.params.id,
+        usuario_id:req.usuario.userId
       });
   
       const agendaId = await ExcluirAgenda(agenda);

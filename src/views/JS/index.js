@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", async function (e) {
 async function CriarListaAgenda(item) {
   const newItem = document.createElement("li");
   newItem.innerHTML =
-    `
+    `<p class="ID_agenda" style="display:none;">ID: ${
+      item.id
+    }</p>
     <h4>` +
     item.titulo +
     `</h4>
@@ -31,9 +33,35 @@ async function CriarListaAgenda(item) {
       <a href="editarAgenda.html?id=${
         item.id
       }">Editar Agenda <i class="fa-solid fa-pen-to-square"></i></a>
-      <a onclick=""(${
+      <a onclick="confirmarExclusao(${
         item.id
       })">Excluir Agenda <i class="fa-solid fa-trash"></i></a>
       </div>`;
   document.getElementById("listaAgenda").appendChild(newItem);
 }
+
+async function confirmarExclusao(id) {
+  if (confirm(`Deseja excluir a Agenda?`)) {
+    try {
+      await DeleteAPI(`/api/agenda/${id}`);
+
+      const listaRegistros = document.getElementById("listaAgenda");
+      const registros = listaRegistros.getElementsByTagName("li");
+
+      for (let i = 0; i < registros.length; i++) {
+        const idAgenda = registros[i]
+          .querySelector(".ID_agenda")
+          .textContent.trim()
+          .replace("ID: ", "");
+        if (idAgenda === id.toString()) {
+          registros[i].remove();
+          break;
+        }
+      }
+    } catch (error) {
+      alert("Erro ao excluir transação. Por favor, tente novamente.");
+    }
+  }
+}
+
+
